@@ -1,40 +1,44 @@
 const usuarios: { nome: string; pets: string[] }[] = [
   {
-      nome: "João",
-      pets: ["Max"],
+    nome: "João",
+    pets: ["Max"],
   },
   {
-      nome: "Ana",
-      pets: ["Pingo", "Lulu"],
+    nome: "Ana",
+    pets: ["Pingo", "Lulu"],
   },
   {
-      nome: "Beatriz",
-      pets: ["Lessie"],
+    nome: "Beatriz",
+    pets: ["Lessie"],
   },
   {
-      nome: "Carlos",
-      pets: ["Farofa", "Salsicha", "Batata"],
+    nome: "Carlos",
+    pets: ["Farofa", "Salsicha", "Batata"],
   },
   {
-      nome: "Antonio",
-      pets: ["Naninha"],
+    nome: "Antonio",
+    pets: ["Naninha"],
   },
 ];
 
-const buscarDonoPet = (lista: { nome:string; pets:string[] }[], nomePet:string) => {
+const buscarDonoPet = (
+  lista: { nome: string; pets: string[] }[],
+  nomePet: string
+) => {
   let usuarioEncontrado;
 
   for (const usuario of lista) {
-      if (usuario.pets.includes(nomePet)) {
-          usuarioEncontrado = usuario;
-      }
+    if (usuario.pets.includes(nomePet)) {
+      usuarioEncontrado = usuario;
+    }
   }
 
   if (usuarioEncontrado) {
-      console.log(`O dono(a) do(a) ${nomePet} é o(a) ${usuarioEncontrado.nome}`);
+    return `O dono(a) do(a) ${nomePet} é o(a) ${usuarioEncontrado.nome}`;
   } else {
-      console.log(`Que pena ${nomePet}, não encontramos seu dono(a)`);
+    return `Que pena ${nomePet}, não encontramos seu dono(a)`;
   }
-}
+};
 
-buscarDonoPet(usuarios, 'Guido');
+console.log(buscarDonoPet(usuarios, "Max"));
+console.log(buscarDonoPet(usuarios, "Pipoca"));
